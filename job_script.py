@@ -59,24 +59,32 @@ e_p = SpaceRobotEnvV1()
 # =======================================
 # On-board model initialization
 if mission==1:
+    e.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
+    e.model.actuator_ctrlrange[8] =  np.array([-3, 3])
     e_p.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
     e_p.model.actuator_ctrlrange[8] =  np.array([-3, 3])
-    save_xml(e_p)
 elif mission==2:
+    e.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
+    e.model.actuator_ctrlrange[8] =  np.array([-3, 3])
     e_p.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 5000, 5000, 5000, 5000, 5000, 5000, 5000]
     e_p.model.actuator_ctrlrange[8] =  np.array([-3, 3])
-    save_xml(e_p)
 elif mission==3:
+    e.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
+    e.model.actuator_ctrlrange[8] =  np.array([0.0, 0.0])
     e_p.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
     e_p.model.actuator_ctrlrange[8] =  np.array([0.0, 0.0])
-    save_xml(e_p)
 elif mission==4:
+    e.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
+    e.model.actuator_ctrlrange[8] =  np.array([0.0, 0.0])
     e_p.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 5000, 5000, 5000, 5000, 5000, 5000, 5000]
     e_p.model.actuator_ctrlrange[8] =  np.array([0.0, 0.0])
-    save_xml(e_p)
 elif mission=='Uncertain':
+    e.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 200, 300, 400, 500, 600, 700, 800]
+    e.model.actuator_ctrlrange[8] =  np.array([-3, 3])
     e_p.model.dof_damping[:] = [ 0.,  0.,  0.,  0.,  0.,  0., 5000, 5000, 5000, 5000, 5000, 5000, 5000]
     e_p.model.actuator_ctrlrange[8] =  np.array([-3, 3])
+save_xml(e_p)
+save_xml(e)
 # =======================================
 mean = np.zeros(e.action_dim)
 sigma = 1.0*np.ones(e.action_dim)
